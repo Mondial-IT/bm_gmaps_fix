@@ -1,0 +1,22 @@
+---
+label: 'Configuring Google Maps Fix'
+top_level: false
+related:
+- gmaps_fix.overview
+---
+<h2>{% trans %}Goal{% endtrans %}</h2>
+<p>{% trans %}Enter a valid Google Maps API key in Gavias Ziston and verify that the script loads without Console or Network errors.{% endtrans %}</p>
+
+<h2>{% trans %}Steps{% endtrans %}</h2>
+<ol>
+  <li>{% set appearance = render_var(help_route_link('Appearance', 'system.themes_page')) %}
+    {% trans %}In the <em>Manage</em> administrative menu, navigate to {{ appearance }} and open <em>Gavias Ziston</em> settings.{% endtrans %}</li>
+  <li>{% trans %}Locate the <em>Google Maps API key</em> field and paste your key.{% endtrans %}</li>
+  <li>{% trans %}Save configuration and clear caches.{% endtrans %}</li>
+  <li>{% trans %}Open a page that contains a Gavias map. In your browser DevTools, confirm that <code>maps.googleapis.com/maps/api/js</code> is loaded and tile requests are 200/304 (not blocked by CSP).{% endtrans %}</li>
+</ol>
+
+<h2>{% trans %}Additional resources{% endtrans %}</h2>
+<ul>
+  <li><a href="https://developers.google.com/maps/documentation/javascript/overview">{% trans %}Google Maps JavaScript API overview{% endtrans %}</a></li>
+</ul>

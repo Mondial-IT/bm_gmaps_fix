@@ -1,0 +1,31 @@
+<?php
+// modules/custom/gmaps_fix/gmaps_fix.module
+declare(strict_types=1);
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+function bm_gmaps_fix_page_attachments(array &$attachments): void {
+  $api_key='not set';
+  // Fallback: direct config reads (allows settings.php overrides).
+  $config = \Drupal::config('google_map_field.settings');
+  if ($config) {
+    $api_key = (string)($config->get('google_map_field_apikey') ?? 'error not set');
+  }
+  // Attach the Google Maps library on specific routes or globally.
+  // Example: attach on all pages; restrict as needed.
+  $attachments['#attached']['library'][] = 'bm_gmaps_fix/gmaps';
+  $attachments['#attached']['drupalSettings']['bmGmapsFix']['apiKey'] = $api_key;
+}
+
+/**
+ * Implements hook_help().
+ */
+function bm_gmaps_fix_help($route_name, RouteMatchInterface $route_match): string {
+  if ($route_name === 'help.page.bm_gmaps_fix') {
+    $help_url = Url::fromRoute('help.main')->toString();
+    return '<p>Loads the Google Maps JS API using the key from Gavias Ziston theme settings.
+            See the <a href="' . $help_url . '">Help topics</a> for setup and troubleshooting.</p>';
+  }
+  return '';
+}
