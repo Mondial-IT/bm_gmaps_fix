@@ -14,7 +14,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Drupal\\bm_gmaps_view\\": "src/"
+            "Drupal\\bm_gmaps_fix\\": "src/"
         }
     },
     "extra": {
