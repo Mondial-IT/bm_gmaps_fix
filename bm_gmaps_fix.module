@@ -3,7 +3,6 @@
 declare(strict_types=1);
 
 use Drupal\Core\Routing\RouteMatchInterface;
-use Drupal\Core\Url;
 
 function bm_gmaps_fix_page_attachments(array &$attachments): void {
   $api_key='not set';
@@ -23,9 +22,14 @@ function bm_gmaps_fix_page_attachments(array &$attachments): void {
  */
 function bm_gmaps_fix_help($route_name, RouteMatchInterface $route_match): string {
   if ($route_name === 'help.page.bm_gmaps_fix') {
-    $help_url = Url::fromRoute('help.main')->toString();
-    return '<p>Loads the Google Maps JS API using the key from Gavias Ziston theme settings.
-            See the <a href="' . $help_url . '">Help topics</a> for setup and troubleshooting.</p>';
+    $output = '<h2>' . t('Mondial-IT Ziston Google Maps display fix') . '</h2>';
+    $output .= '<p>' . t('Ensures Google Maps widgets load within the Gavias Ziston theme by attaching the correct API script and key on admin pages.') . '</p>';
+
+    $output .= '<h3>' . t('Menus') . '</h3><ul><li>' . t('None. The behavior is automatic on matching routes.') . '</li></ul>';
+    $output .= '<h3>' . t('URIs') . '</h3><ul><li>' . t('None exposed. Configure the API key through the Gavias Google Map Field module.') . '</li></ul>';
+
+    $output .= '<p>' . t('See the core Help topics for Gavias for troubleshooting and API key provisioning.') . '</p>';
+    return $output;
   }
   return '';
 }

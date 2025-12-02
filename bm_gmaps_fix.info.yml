@@ -1,5 +1,5 @@
-name: bm_gmaps_fix
+name: Mondial-IT Ziston Google Maps display fix
 type: module
-description: Blue Marloc - Google Maps fix - fixes gmaps not being displayed in Gavias Ziston theme.
+description: Mondial-IT - Google Maps fix - fixes gmaps not being displayed in Gavias Ziston theme.
 core_version_requirement: ^10 || ^11
-package: Blue Marloc
+package: Mondial-IT
