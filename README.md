@@ -24,8 +24,9 @@ missing API keys, or theme-level integration problems.
 
 1. Place the module into `modules/custom/gmaps_fix`.
 2. Enable it from **Extend**.
-3. Add your Google Maps API key under
-   **Appearance → Settings → Gavias Ziston → Google Map API Key**.
+3. Add your Google Maps API key under: (both)
+   **/admin/appearance/settings/ziston_sub**.
+   **/admin/config/services/gmap-field-settings**
 4. Clear caches.
 
 ## Project Status
